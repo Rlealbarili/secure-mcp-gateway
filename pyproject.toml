@@ -1,0 +1,30 @@
+[project]
+name = "secure-mcp-gateway"
+version = "0.1.0"
+description = "Gateway seguro MCP Streamable HTTP com autenticação OAuth 2.0 PKCE e Guardrails para o Google Gemini Web"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "mcp>=1.26.0,<2.0.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "pyjwt>=2.10.0",
+    "cryptography>=44.0.0",
+    "httpx>=0.28.0",
+    "python-multipart>=0.0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+secure-mcp-gateway = "backend.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend"]
