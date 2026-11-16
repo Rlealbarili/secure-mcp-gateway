@@ -26,9 +26,11 @@ mcp.settings.transport_security.allowed_hosts = [
     "testserver",
     "testserver:*",
 ]
+# A SDK MCP compara a origem por igualdade exata (só aceita curinga de porta,
+# ":*"). Padrões como "https://*.google.com" nunca casam com uma origem real.
+# Requisições sem Origin (servidor a servidor) continuam aceitas pela SDK.
 mcp.settings.transport_security.allowed_origins = [
     "https://gemini.google.com",
-    "https://*.google.com",
 ]
 
 
